@@ -1,0 +1,260 @@
+/* ===================================
+   Page 5 — Food Selection Styles
+   =================================== */
+
+/* ---- Scene ---- */
+.page5-scene {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+    padding: 2rem;
+}
+
+/* ---- Card ---- */
+.page5-card {
+    position: relative;
+    background: var(--color-card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--card-radius);
+    padding: 3rem 3rem 2.5rem;
+    max-width: 600px;
+    width: 95%;
+    text-align: center;
+    box-shadow:
+        0 8px 32px rgba(91, 163, 217, 0.1),
+        0 2px 8px rgba(91, 163, 217, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+    /* Entry animation */
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    animation: cardEntrance 1s var(--transition-bounce) 0.3s forwards;
+
+    transition: transform 0.4s var(--transition-smooth), box-shadow 0.4s var(--transition-smooth);
+}
+
+/* ---- Typography ---- */
+.page5-title {
+    font-family: var(--font-heading);
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: var(--color-text-heading);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+
+    opacity: 0;
+    transform: translateY(15px);
+    animation: textSlideUp 0.6s var(--transition-smooth) 0.6s forwards;
+}
+
+.page5-subtitle {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--color-text-body);
+    margin-bottom: 2rem;
+    line-height: 1.65;
+
+    opacity: 0;
+    transform: translateY(10px);
+    animation: textSlideUp 0.6s var(--transition-smooth) 0.8s forwards;
+}
+
+/* ---- Food Grid ---- */
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    margin-bottom: 2.5rem;
+}
+
+.food-option {
+    cursor: pointer;
+    display: block;
+    position: relative;
+    opacity: 0;
+    transform: translateY(15px);
+    /* Dynamic delay based on inline style var(--delay) */
+    animation: textSlideUp 0.5s var(--transition-bounce) forwards;
+    animation-delay: calc(0.8s + (var(--delay) * 0.1s));
+}
+
+.food-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.food-card-inner {
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid transparent;
+    border-radius: 16px;
+    padding: 1.5rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    transition: all 0.3s var(--transition-smooth);
+    box-shadow: 0 4px 15px rgba(91, 163, 217, 0.05);
+}
+
+.food-emoji {
+    font-size: 2.5rem;
+    transition: transform 0.4s var(--transition-bounce);
+    display: inline-block;
+}
+
+.food-name {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-body);
+    transition: color 0.3s ease;
+}
+
+/* Hover effects */
+.food-option:hover .food-card-inner {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 25px rgba(91, 163, 217, 0.12);
+}
+
+.food-option:hover .food-emoji {
+    transform: scale(1.15) rotate(5deg);
+}
+
+/* Selected state */
+.food-option input[type="radio"]:checked + .food-card-inner {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: var(--color-primary);
+    box-shadow: 
+        0 8px 25px rgba(91, 163, 217, 0.2),
+        inset 0 0 0 2px rgba(91, 163, 217, 0.1);
+    transform: translateY(-5px) scale(1.02);
+}
+
+.food-option input[type="radio"]:checked + .food-card-inner .food-name {
+    color: var(--color-primary-dark);
+}
+
+.food-option input[type="radio"]:checked + .food-card-inner .food-emoji {
+    animation: bounceEmoji 1s var(--transition-bounce) infinite;
+}
+
+@keyframes bounceEmoji {
+    0%, 100% { transform: translateY(0) scale(1.15); }
+    50% { transform: translateY(-8px) scale(1.15); }
+}
+
+/* ---- CTA Button ---- */
+.action-container {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: textSlideUp 0.6s var(--transition-smooth) 1.6s forwards;
+}
+
+.page5-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 0.9rem 2.5rem;
+    background: linear-gradient(135deg, var(--color-cta-gradient-start), var(--color-cta-gradient-end));
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(91, 163, 217, 0.35);
+    transition: all 0.3s var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.page5-cta:disabled {
+    background: #d0dce6;
+    color: #a0b0bf;
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.page5-cta:not(:disabled)::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--color-cta-hover-start), var(--color-cta-hover-end));
+    opacity: 0;
+    transition: opacity 0.3s var(--transition-smooth);
+}
+
+.page5-cta:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(91, 163, 217, 0.45);
+}
+
+.page5-cta:not(:disabled):hover::before {
+    opacity: 1;
+}
+
+.page5-cta:not(:disabled):hover svg {
+    transform: translateX(4px);
+}
+
+.page5-cta span, .page5-cta svg {
+    position: relative;
+    z-index: 1;
+}
+
+.page5-cta svg {
+    transition: transform 0.3s var(--transition-smooth);
+}
+
+/* ---- Card Dots ---- */
+.page5-card .card-dots {
+    margin-top: 2rem;
+    opacity: 0;
+    animation: fadeIn 0.6s var(--transition-smooth) 1.8s forwards;
+}
+
+/* ===================================
+   Responsive
+   =================================== */
+@media (max-width: 560px) {
+    .food-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page5-card {
+        padding: 2.5rem 1.5rem 2rem;
+    }
+
+    .page5-title {
+        font-size: 1.8rem;
+    }
+
+    .food-card-inner {
+        padding: 1rem 0.5rem;
+    }
+
+    .food-emoji {
+        font-size: 2rem;
+    }
+
+    .food-name {
+        font-size: 0.9rem;
+    }
+}

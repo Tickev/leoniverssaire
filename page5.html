@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Une surprise pour toi ✨</title>
+    <meta name="description" content="Une invitation spéciale pour ton anniversaire">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&family=Caveat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="page5.css">
+</head>
+
+<body>
+    <!-- Floating particles background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Floating soft shapes -->
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+        <div class="shape shape-5"></div>
+    </div>
+
+    <!-- Main content -->
+    <main class="page5-scene">
+        <div class="page5-card" id="foodCard">
+            <div class="card-glow"></div>
+
+            <h1 class="page5-title">Qu'est-ce qui te plairait ?</h1>
+            <p class="page5-subtitle">Désolé, tu ne peux en cocher qu'un, je sais que c'est triste...</p>
+
+            <div class="food-grid">
+                <label class="food-option" style="--delay: 1">
+                    <input type="radio" name="food" value="pizza">
+                    <div class="food-card-inner">
+                        <span class="food-emoji">🍕</span>
+                        <span class="food-name">Pizza</span>
+                    </div>
+                </label>
+
+                <label class="food-option" style="--delay: 2">
+                    <input type="radio" name="food" value="sushi">
+                    <div class="food-card-inner">
+                        <span class="food-emoji">🍣</span>
+                        <span class="food-name">Sushi</span>
+                    </div>
+                </label>
+
+                <label class="food-option" style="--delay: 3">
+                    <input type="radio" name="food" value="burger">
+                    <div class="food-card-inner">
+                        <span class="food-emoji">🍔</span>
+                        <span class="food-name">Burger</span>
+                    </div>
+                </label>
+
+                <label class="food-option" style="--delay: 4">
+                    <input type="radio" name="food" value="pates">
+                    <div class="food-card-inner">
+                        <span class="food-emoji">🍝</span>
+                        <span class="food-name">Pâtes</span>
+                    </div>
+                </label>
+
+                <label class="food-option" style="--delay: 5">
+                    <input type="radio" name="food" value="ramen">
+                    <div class="food-card-inner">
+                        <span class="food-emoji">🍜</span>
+                        <span class="food-name">Ramen</span>
+                    </div>
+                </label>
+
+                <label class="food-option" style="--delay: 6">
+                    <input type="radio" name="food" value="feeling">
+                    <div class="food-card-inner">
+                        <span class="food-emoji">🎲</span>
+                        <span class="food-name">Au feeling</span>
+                    </div>
+                </label>
+            </div>
+
+            <div class="action-container">
+                <button class="page5-cta" id="submitFood" disabled>
+                    <span>Suivant</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Navigation dots -->
+            <div class="card-dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot dot-active"></span>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="page5.js"></script>
+</body>
+
+</html>

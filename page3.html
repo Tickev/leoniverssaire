@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paris, beautiful city</title>
+    <meta name="description" content="Une invitation spéciale pour ton anniversaire">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&family=Caveat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="page3.css">
+</head>
+
+<body>
+    <!-- Floating particles background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Floating soft shapes -->
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+        <div class="shape shape-5"></div>
+    </div>
+
+    <!-- Main content -->
+    <main class="invite-scene">
+        <div class="invite-card" id="inviteCard">
+            <div class="card-glow"></div>
+
+            <!-- Paris image -->
+            <div class="paris-image-wrapper">
+                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2Nhb2J3Nm44bGxxMTUzcWlxbGx5eHc5MGpua3c5MndkbzV6ejN2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/r0w9CLiJg96TvNWKVA/giphy.gif"
+                    alt="Paris" class="paris-image" id="parisImage">
+                <div class="paris-shimmer"></div>
+            </div>
+
+            <!-- Question -->
+            <h1 class="invite-question" id="inviteQuestion">Tu m'accompagnes sur <span
+                    class="highlight-blue">Paris</span> ? 🗼</h1>
+            <p class="invite-subtitle">(je ne connais pas cette meuf mais le gif était drôle)</p>
+
+            <!-- Buttons -->
+            <div class="invite-buttons" id="inviteButtons">
+                <a href="page4.html" class="btn-yes" id="btnYes">
+                    <span>Avec plaisir !</span>
+                </a>
+                <button class="btn-no" id="btnNo">
+                    <span>non</span>
+                </button>
+            </div>
+
+            <!-- Reaction message that changes -->
+            <p class="escape-message" id="escapeMessage"></p>
+
+            <!-- Navigation dots -->
+            <div class="card-dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot dot-active"></span>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="page3.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,503 @@
+/* ===================================
+   Design Tokens & Variables
+   =================================== */
+:root {
+    /* Light blue palette */
+    --color-bg-start: #e8f4fd;
+    --color-bg-end: #f0f7ff;
+    --color-primary: #5ba3d9;
+    --color-primary-light: #8cc5f0;
+    --color-primary-dark: #3a7fc2;
+    --color-accent: #a7d8f5;
+    --color-accent-soft: #d4edfb;
+    --color-card-bg: rgba(255, 255, 255, 0.85);
+    --color-card-border: rgba(255, 255, 255, 0.6);
+    --color-text-heading: #2c3e50;
+    --color-text-body: #5a6f82;
+    --color-text-muted: #8ea4b8;
+    --color-cta-gradient-start: #5ba3d9;
+    --color-cta-gradient-end: #82c4f0;
+    --color-cta-hover-start: #4a92cc;
+    --color-cta-hover-end: #6ab5e8;
+    --color-glow: rgba(91, 163, 217, 0.15);
+    --color-emoji-bg: rgba(91, 163, 217, 0.1);
+
+    /* Shapes */
+    --shape-1-color: rgba(91, 163, 217, 0.12);
+    --shape-2-color: rgba(167, 216, 245, 0.15);
+    --shape-3-color: rgba(130, 196, 240, 0.1);
+    --shape-4-color: rgba(212, 237, 251, 0.2);
+    --shape-5-color: rgba(58, 127, 194, 0.08);
+
+    /* Typography */
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Spacing */
+    --card-padding: 3rem 3.5rem;
+    --card-radius: 24px;
+    --btn-radius: 50px;
+
+    /* Animations */
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ===================================
+   Reset & Base
+   =================================== */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, var(--color-bg-start), var(--color-bg-end));
+    overflow: hidden;
+    position: relative;
+}
+
+/* ===================================
+   Floating Particles (canvas-like)
+   =================================== */
+.particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0;
+    animation: particleFloat linear infinite;
+}
+
+@keyframes particleFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(100vh) scale(0);
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-10vh) scale(1);
+    }
+}
+
+/* ===================================
+   Floating Shapes (background decor)
+   =================================== */
+.floating-shapes {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+}
+
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    background: var(--shape-1-color);
+    top: -80px;
+    right: -60px;
+    animation: shapeFloat1 12s ease-in-out infinite;
+}
+
+.shape-2 {
+    width: 200px;
+    height: 200px;
+    background: var(--shape-2-color);
+    bottom: 10%;
+    left: -40px;
+    animation: shapeFloat2 15s ease-in-out infinite;
+}
+
+.shape-3 {
+    width: 150px;
+    height: 150px;
+    background: var(--shape-3-color);
+    top: 40%;
+    right: 15%;
+    animation: shapeFloat3 10s ease-in-out infinite;
+}
+
+.shape-4 {
+    width: 250px;
+    height: 250px;
+    background: var(--shape-4-color);
+    bottom: -50px;
+    right: 30%;
+    animation: shapeFloat1 18s ease-in-out infinite reverse;
+}
+
+.shape-5 {
+    width: 180px;
+    height: 180px;
+    background: var(--shape-5-color);
+    top: 15%;
+    left: 20%;
+    animation: shapeFloat2 14s ease-in-out infinite reverse;
+}
+
+@keyframes shapeFloat1 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(30px, -20px) rotate(5deg); }
+    66% { transform: translate(-20px, 15px) rotate(-3deg); }
+}
+
+@keyframes shapeFloat2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(25px, -30px) scale(1.08); }
+}
+
+@keyframes shapeFloat3 {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(-15px, 20px); }
+    50% { transform: translate(10px, -10px); }
+    75% { transform: translate(-20px, -15px); }
+}
+
+/* ===================================
+   Hero Section
+   =================================== */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+}
+
+/* ===================================
+   Card Component
+   =================================== */
+.card {
+    position: relative;
+    background: var(--color-card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--card-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    max-width: 520px;
+    width: 90%;
+    box-shadow:
+        0 8px 32px rgba(91, 163, 217, 0.1),
+        0 2px 8px rgba(91, 163, 217, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    
+    /* Entry animation */
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    animation: cardEntrance 1s var(--transition-bounce) 0.3s forwards;
+    
+    /* Hover interaction */
+    transition: transform 0.4s var(--transition-smooth), box-shadow 0.4s var(--transition-smooth);
+}
+
+.card:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow:
+        0 16px 48px rgba(91, 163, 217, 0.18),
+        0 4px 12px rgba(91, 163, 217, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+@keyframes cardEntrance {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Card glow effect */
+.card-glow {
+    position: absolute;
+    inset: -2px;
+    border-radius: calc(var(--card-radius) + 2px);
+    background: linear-gradient(
+        135deg,
+        rgba(91, 163, 217, 0.2),
+        transparent 40%,
+        transparent 60%,
+        rgba(130, 196, 240, 0.15)
+    );
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s var(--transition-smooth);
+}
+
+.card:hover .card-glow {
+    opacity: 1;
+}
+
+/* ===================================
+   Emoji
+   =================================== */
+.emoji-container {
+    width: 72px;
+    height: 72px;
+    background: var(--color-emoji-bg);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    
+    /* Entry animation */
+    opacity: 0;
+    transform: scale(0) rotate(-20deg);
+    animation: emojiPop 0.6s var(--transition-bounce) 0.8s forwards;
+}
+
+.wave-emoji {
+    font-size: 2rem;
+    display: inline-block;
+    animation: waveHand 2.5s ease-in-out 1.8s infinite;
+    transform-origin: 70% 70%;
+}
+
+@keyframes emojiPop {
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@keyframes waveHand {
+    0%, 100% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+    60% { transform: rotate(0deg); }
+}
+
+/* ===================================
+   Typography
+   =================================== */
+.card-title {
+    font-family: var(--font-heading);
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: var(--color-text-heading);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+    
+    /* Entry animation */
+    opacity: 0;
+    transform: translateY(15px);
+    animation: textSlideUp 0.6s var(--transition-smooth) 1s forwards;
+}
+
+.card-subtitle {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--color-text-body);
+    line-height: 1.65;
+    margin-bottom: 2rem;
+    
+    /* Entry animation */
+    opacity: 0;
+    transform: translateY(15px);
+    animation: textSlideUp 0.6s var(--transition-smooth) 1.2s forwards;
+}
+
+@keyframes textSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===================================
+   CTA Button
+   =================================== */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 2.2rem;
+    background: linear-gradient(135deg, var(--color-cta-gradient-start), var(--color-cta-gradient-end));
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: var(--btn-radius);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.3s var(--transition-smooth),
+        box-shadow 0.3s var(--transition-smooth);
+    box-shadow: 0 4px 16px rgba(91, 163, 217, 0.35);
+    
+    /* Entry animation */
+    opacity: 0;
+    transform: translateY(15px);
+    animation: textSlideUp 0.6s var(--transition-smooth) 1.4s forwards;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--color-cta-hover-start), var(--color-cta-hover-end));
+    opacity: 0;
+    transition: opacity 0.3s var(--transition-smooth);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 28px rgba(91, 163, 217, 0.45);
+}
+
+.cta-button:hover::before {
+    opacity: 1;
+}
+
+.cta-button:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 2px 10px rgba(91, 163, 217, 0.3);
+}
+
+.cta-text,
+.cta-arrow {
+    position: relative;
+    z-index: 1;
+}
+
+.cta-arrow {
+    display: inline-block;
+    transition: transform 0.3s var(--transition-smooth);
+    font-size: 1.1rem;
+}
+
+.cta-button:hover .cta-arrow {
+    transform: translateX(4px);
+}
+
+/* Shimmer effect on button */
+.cta-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.25),
+        transparent
+    );
+    z-index: 1;
+    animation: shimmer 3s ease-in-out 2.5s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 200%; }
+}
+
+/* ===================================
+   Card Dots (decorative)
+   =================================== */
+.card-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 1.8rem;
+    
+    /* Entry animation */
+    opacity: 0;
+    animation: fadeIn 0.6s var(--transition-smooth) 1.6s forwards;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    transition: all 0.3s var(--transition-smooth);
+}
+
+.dot-active {
+    width: 20px;
+    border-radius: 10px;
+    background: var(--color-primary);
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* ===================================
+   Responsive
+   =================================== */
+@media (max-width: 480px) {
+    .card {
+        padding: 2.2rem 1.8rem;
+        max-width: 340px;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+    }
+
+    .card-subtitle {
+        font-size: 0.88rem;
+    }
+
+    .emoji-container {
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+    }
+
+    .wave-emoji {
+        font-size: 1.6rem;
+    }
+
+    .cta-button {
+        padding: 0.8rem 1.8rem;
+        font-size: 0.9rem;
+    }
+
+    .shape-1 { width: 200px; height: 200px; }
+    .shape-2 { width: 140px; height: 140px; }
+    .shape-4 { width: 180px; height: 180px; }
+}

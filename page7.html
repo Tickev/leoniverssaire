@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Une surprise pour toi ✨</title>
+    <meta name="description" content="Une invitation spéciale pour ton anniversaire">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&family=Caveat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="page7.css">
+</head>
+
+<body>
+    <!-- Floating particles background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Floating soft shapes -->
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+        <div class="shape shape-5"></div>
+    </div>
+
+    <!-- Main content -->
+    <main class="page7-scene">
+        <div class="page7-card" id="summaryCard">
+            <div class="card-glow"></div>
+
+            <div class="success-icon-wrapper">
+                <div class="success-icon">✨</div>
+            </div>
+
+            <h1 class="page7-title">Et voila !</h1>
+            <p class="page7-subtitle">Un rappel de ce pour quoi tu as signé (tu n'as pas signé ? Je m'en fous)</p>
+
+            <div class="summary-list">
+                <!-- Location -->
+                <div class="summary-item" style="--item-index: 1;">
+                    <div class="summary-icon">🗼</div>
+                    <div class="summary-details">
+                        <span class="summary-label">Lieu</span>
+                        <span class="summary-value">Paris</span>
+                    </div>
+                </div>
+
+                <!-- Food (Dynamic) -->
+                <div class="summary-item" style="--item-index: 2;">
+                    <div class="summary-icon" id="foodEmoji">🍽️</div>
+                    <div class="summary-details">
+                        <span class="summary-label">Au menu</span>
+                        <span class="summary-value" id="foodName">Chargement...</span>
+                    </div>
+                </div>
+
+                <!-- Date (Dynamic) -->
+                <div class="summary-item" style="--item-index: 3;">
+                    <div class="summary-icon">📅</div>
+                    <div class="summary-details">
+                        <span class="summary-label">Date</span>
+                        <span class="summary-value" id="dateValue">Chargement...</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="final-message">
+                <p>On va retrouver les bijoux de la couronne !</p>
+            </div>
+
+            <div class="action-container">
+                <button class="page7-cta" onclick="window.print()">
+                    <span>Garder un souvenir</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <rect x="6" y="14" width="12" height="8"></rect>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Confetti Canvas -->
+            <canvas id="confetti" class="confetti-canvas"></canvas>
+        </div>
+    </main>
+
+    <!-- Confetti JS Library from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+    <script src="page7.js"></script>
+</body>
+
+</html>

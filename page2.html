@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un petit mot</title>
+    <meta name="description" content="Une lettre spéciale pour ton anniversaire">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&family=Caveat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="page2.css">
+</head>
+
+<body>
+    <!-- Floating particles background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Floating soft shapes -->
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+        <div class="shape shape-5"></div>
+    </div>
+
+    <!-- Envelope icon that appears first -->
+    <div class="envelope-intro" id="envelopeIntro">
+        <div class="envelope-icon">✉️</div>
+    </div>
+
+    <!-- Letter container -->
+    <main class="letter-scene" id="letterScene">
+        <article class="letter" id="letter">
+            <div class="letter-glow"></div>
+
+            <!-- Decorative seal -->
+            <div class="letter-seal">
+                <span>🎂</span>
+            </div>
+
+            <header class="letter-header">
+                <p class="letter-date">Le 12 juin 2026</p>
+                <h1 class="letter-greeting">Ma chère Relou,</h1>
+            </header>
+
+            <div class="letter-body">
+                <p>Profite bien de ce jour où tu as enfin le même âge que moi. N'oublie quand même pas que je resterai
+                    toujours le plus vieux ici et que tu me devras toujours le respect. 👴</p>
+
+                <p>Un peu plus sérieusement, je suis sincèrement très heureux d'être venu te reparler il y a maintenant
+                    une semaine. Ça m'a permis de redécouvrir une personne à qui je tenais quand même beaucoup et avec
+                    qui j'avais perdu contact du jour au lendemain.</p>
+
+                <p>Je sais que nous en avons déjà reparlé plusieurs fois, mais je tenais vraiment à m'excuser si tu as
+                    eu l'impression d'avoir été ghostée car ce n'était absolument pas volontaire de mon côté. Quand je
+                    repense à nos discussions actuelles, ça me ferait presque regretter tout le temps pendant lequel
+                    nous nous sommes perdues de vue.</p>
+
+                <p>Tu me demandais récemment ce que je pensais de toi, et à ce moment-là je n'avais pas encore assez de
+                    recul pour te répondre. Je pense qu'aujourd'hui je peux te donner une réponse plus précise : tu es
+                    une personne absolument géniale, drôle, naturelle et très ouverte (même si tu me raccroches à la
+                    gueule sale susceptible 😤).</p>
+
+                <p>J'espère vraiment que nos conversations se poursuiverons en dehors de snap et Whatsapp car je pense
+                    avoir plein de chose à te faire découvrir 👀 (et moi je n'oublie pas les oignons 🧅)
+                </p>
+
+                <p class="letter-signature">Titouan 🐔</p>
+            </div>
+
+            <!-- CTA to next page -->
+            <div class="letter-cta-wrapper">
+                <a href="page3.html" class="cta-button letter-cta" id="letterCta">
+                    <span class="cta-text">La suite</span>
+                    <span class="cta-arrow">›</span>
+                </a>
+            </div>
+
+            <!-- Navigation dots -->
+            <div class="card-dots">
+                <span class="dot"></span>
+                <span class="dot dot-active"></span>
+                <span class="dot"></span>
+            </div>
+        </article>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="page2.js"></script>
+</body>
+
+</html>
